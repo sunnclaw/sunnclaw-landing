@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polymarket Sniper API - 充值激活</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --accent: #22d3ee;
+            --bg-dark: #0f0f23;
+            --bg-card: #1a1a2e;
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+            --success: #10b981;
+            --gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .payment-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .logo { font-size: 2.5rem; margin-bottom: 16px; }
+        h1 { font-size: 1.5rem; margin-bottom: 8px; }
+        .subtitle { color: var(--text-muted); margin-bottom: 24px; font-size: 0.95rem; }
+
+        .price-options {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .price-option {
+            flex: 1;
+            padding: 16px 8px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 2px solid rgba(99, 102, 241, 0.3);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .price-option:hover {
+            border-color: var(--primary);
+            background: rgba(99, 102, 241, 0.2);
+        }
+
+        .price-option.selected {
+            border-color: var(--accent);
+            background: rgba(34, 211, 238, 0.15);
+        }
+
+        .price-option .amount {
+            font-size: 1.5rem;
+            font-weight: 800;
+            display: block;
+        }
+
+        .price-option .calls {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .price-option.popular {
+            position: relative;
+        }
+
+        .price-option.popular::before {
+            content: '推荐';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--success);
+            color: white;
+            font-size: 0.65rem;
+            padding: 2px 8px;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+
+        .network-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(130, 71, 229, 0.2);
+            border: 1px solid #8247e5;
+            color: #a78bfa;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .qr-section {
+            background: white;
+            padding: 16px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+
+        .qr-section img {
+            width: 150px;
+            height: 150px;
+        }
+
+        .address-box {
+            background: rgba(0,0,0,0.4);
+            border: 1px dashed rgba(99, 102, 241, 0.5);
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            word-break: break-all;
+            margin-bottom: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .address-box:hover {
+            background: rgba(99, 102, 241, 0.15);
+            border-color: var(--primary);
+        }
+
+        .address-box::after {
+            content: ' 📋 点击复制';
+            font-size: 0.7rem;
+            color: var(--accent);
+        }
+
+        .guarantee {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 12px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+        }
+
+        .guarantee span {
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background: var(--gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .note {
+            margin-top: 16px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .features div {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-card">
+        <div class="logo">🦞</div>
+        <h1>激活 Sniper API</h1>
+        <p class="subtitle">选择充值金额，开始狙击预测市场</p>
+        
+        <div class="price-options">
+            <div class="price-option selected" onclick="selectPlan(this, 20)">
+                <span class="amount">$20</span>
+                <span class="calls">≈ 200 次调用</span>
+            </div>
+            <div class="price-option popular" onclick="selectPlan(this, 50)">
+                <span class="amount">$50</span>
+                <span class="calls">≈ 550 次调用</span>
+            </div>
+            <div class="price-option" onclick="selectPlan(this, 100)">
+                <span class="amount">$100</span>
+                <span class="calls">≈ 1200 次调用</span>
+            </div>
+        </div>
+
+        <div class="network-badge">🔷 Polygon 网络 · USDC</div>
+        
+        <div class="qr-section">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=0x01f8d5c5c13d21bff91c1bc485af69b6c962df4d" alt="收款二维码">
+        </div>
+
+        <div class="address-box" onclick="copyAddress()">
+            0x01f8d5c5c13d21bff91c1bc485af69b6c962df4d
+        </div>
+
+        <div class="guarantee">
+            <span>✓</span> 未使用余额随时可退 · 零风险体验
+        </div>
+        
+        <button class="btn" onclick="confirmPayment()">我已完成转账</button>
+        
+        <p class="note">转账确认后，API Key 将在 5 分钟内发送至您的邮箱</p>
+
+        <div class="features">
+            <div>⚡ 实时信号</div>
+            <div>🔒 安全可靠</div>
+            <div>💬 7×24 支持</div>
+        </div>
+    </div>
+
+    <script>
+        function selectPlan(el, amount) {
+            document.querySelectorAll('.price-option').forEach(opt => opt.classList.remove('selected'));
+            el.classList.add('selected');
+        }
+
+        function copyAddress() {
+            navigator.clipboard.writeText('0x01f8d5c5c13d21bff91c1bc485af69b6c962df4d');
+            alert('地址已复制！');
+        }
+
+        function confirmPayment() {
+            const email = prompt('请输入您的邮箱，我们将发送 API Key：');
+            if (email) {
+                alert('收到！我们将在确认到账后 5 分钟内发送 API Key 至 ' + email);
+            }
+        }
+    </script>
+</body>
+</html>

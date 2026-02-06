@@ -1,0 +1,30 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- 龙虾帽子背景 -->
+  <path d="M40 100 Q40 40 100 40 Q160 40 160 100" fill="#ff4d4d" stroke="#b30000" stroke-width="4"/>
+  <!-- 龙虾大钳子 (左) -->
+  <path d="M30 60 Q10 40 30 20 Q50 40 30 60" fill="#ff4d4d" stroke="#b30000" stroke-width="3"/>
+  <!-- 龙虾大钳子 (右) -->
+  <path d="M170 60 Q190 40 170 20 Q150 40 170 60" fill="#ff4d4d" stroke="#b30000" stroke-width="3"/>
+  
+  <!-- 猫咪脸部 -->
+  <circle cx="100" cy="110" r="50" fill="#ffffff" stroke="#333" stroke-width="2"/>
+  
+  <!-- 猫耳朵 (藏在帽子里露出一点) -->
+  <path d="M65 75 L55 55 L80 70 Z" fill="#ffffff" stroke="#333" stroke-width="1"/>
+  <path d="M135 75 L145 55 L120 70 Z" fill="#ffffff" stroke="#333" stroke-width="1"/>
+  
+  <!-- 猫眼睛 -->
+  <circle cx="80" cy="105" r="5" fill="#333"/>
+  <circle cx="120" cy="105" r="5" fill="#333"/>
+  
+  <!-- 猫鼻子和胡须 -->
+  <path d="M95 115 Q100 120 105 115" fill="none" stroke="#333" stroke-width="2"/>
+  <line x1="60" y1="115" x2="40" y2="110" stroke="#333" stroke-width="1"/>
+  <line x1="60" y1="120" x2="40" y2="125" stroke="#333" stroke-width="1"/>
+  <line x1="140" y1="115" x2="160" y2="110" stroke="#333" stroke-width="1"/>
+  <line x1="140" y1="120" x2="160" y2="125" stroke="#333" stroke-width="1"/>
+  
+  <!-- 龙虾眼睛 (在帽子上) -->
+  <circle cx="85" cy="55" r="4" fill="#000"/>
+  <circle cx="115" cy="55" r="4" fill="#000"/>
+</svg>
