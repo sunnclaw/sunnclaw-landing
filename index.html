@@ -21,11 +21,7 @@
             --gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -35,30 +31,18 @@
             overflow-x: hidden;
         }
 
-        /* Animated background */
         .bg-grid {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
             pointer-events: none;
             z-index: 0;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-            position: relative;
-            z-index: 1;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
 
-        /* Header */
         header {
             padding: 20px 0;
             position: fixed;
@@ -70,11 +54,7 @@
             border-bottom: 1px solid rgba(99, 102, 241, 0.1);
         }
 
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
 
         .logo {
             font-size: 1.5rem;
@@ -87,26 +67,9 @@
             gap: 8px;
         }
 
-        .logo span {
-            font-size: 1.8rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--text);
-        }
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--text); }
 
         .btn {
             padding: 12px 24px;
@@ -141,18 +104,8 @@
             border-color: var(--primary);
         }
 
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 80px;
-            position: relative;
-        }
-
-        .hero-content {
-            max-width: 700px;
-        }
+        .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 80px; position: relative; }
+        .hero-content { max-width: 700px; }
 
         .badge {
             display: inline-flex;
@@ -176,10 +129,7 @@
             animation: pulse 2s infinite;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
 
         h1 {
             font-size: 4rem;
@@ -191,40 +141,12 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            margin-bottom: 32px;
-            max-width: 540px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 48px;
-        }
-
-        .stats {
-            display: flex;
-            gap: 48px;
-        }
-
-        .stat {
-            text-align: left;
-        }
-
-        .stat-value {
-            font-size: 2rem;
-            font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .stat-label {
-            font-size: 0.875rem;
-            color: var(--text-muted);
-        }
+        .hero p { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 32px; max-width: 540px; }
+        .hero-buttons { display: flex; gap: 16px; margin-bottom: 48px; }
+        .stats { display: flex; gap: 48px; }
+        .stat { text-align: left; }
+        .stat-value { font-size: 2rem; font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat-label { font-size: 0.875rem; color: var(--text-muted); }
 
         .hero-visual {
             position: absolute;
@@ -238,34 +160,12 @@
             filter: blur(60px);
         }
 
-        /* Features Section */
-        .features {
-            padding: 120px 0;
-        }
+        .features { padding: 120px 0; }
+        .section-header { text-align: center; margin-bottom: 64px; }
+        .section-header h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 16px; }
+        .section-header p { color: var(--text-muted); font-size: 1.125rem; max-width: 600px; margin: 0 auto; }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 64px;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .section-header p {
-            color: var(--text-muted);
-            font-size: 1.125rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 
         .feature-card {
             background: var(--bg-card);
@@ -293,22 +193,10 @@
             margin-bottom: 20px;
         }
 
-        .feature-card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
+        .feature-card h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 12px; }
+        .feature-card p { color: var(--text-muted); font-size: 0.95rem; }
 
-        .feature-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* Pricing Section */
-        .pricing {
-            padding: 120px 0;
-            background: linear-gradient(180deg, transparent 0%, rgba(99, 102, 241, 0.05) 100%);
-        }
+        .pricing { padding: 120px 0; background: linear-gradient(180deg, transparent 0%, rgba(99, 102, 241, 0.05) 100%); }
 
         .pricing-card {
             max-width: 480px;
@@ -325,96 +213,64 @@
         .pricing-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             height: 4px;
             background: var(--gradient);
         }
 
-        .price {
-            display: flex;
-            align-items: baseline;
-            justify-content: center;
-            gap: 4px;
-            margin: 24px 0;
-        }
+        .price { display: flex; align-items: baseline; justify-content: center; gap: 4px; margin: 24px 0; }
+        .price-amount { font-size: 4rem; font-weight: 800; }
+        .price-unit { font-size: 1.25rem; color: var(--text-muted); }
 
-        .price-amount {
-            font-size: 4rem;
-            font-weight: 800;
-        }
+        .pricing-features { list-style: none; margin: 32px 0; text-align: left; }
+        .pricing-features li { padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); display: flex; align-items: center; gap: 12px; }
+        .pricing-features li::before { content: '✓'; color: var(--success); font-weight: 700; }
 
-        .price-unit {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-        }
-
-        .pricing-features {
-            list-style: none;
-            margin: 32px 0;
+        .docs { padding: 120px 0; }
+        .docs-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 24px;
+            padding: 48px;
             text-align: left;
         }
 
-        .pricing-features li {
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        .docs-card pre {
+            background: #0d0d1a;
+            padding: 20px;
+            border-radius: 12px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+            color: #22d3ee;
         }
 
-        .pricing-features li::before {
-            content: '✓';
-            color: var(--success);
-            font-weight: 700;
+        .docs-card code {
+            background: #0d0d1a;
+            padding: 4px 10px;
+            border-radius: 4px;
         }
 
-        /* CTA Section */
-        .cta {
-            padding: 120px 0;
-            text-align: center;
+        .docs-card .pro-tip {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
         }
 
-        .cta h2 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 24px;
-        }
+        .cta { padding: 120px 0; text-align: center; }
+        .cta h2 { font-size: 3rem; font-weight: 800; margin-bottom: 24px; }
+        .cta p { color: var(--text-muted); font-size: 1.25rem; margin-bottom: 32px; }
 
-        .cta p {
-            color: var(--text-muted);
-            font-size: 1.25rem;
-            margin-bottom: 32px;
-        }
+        footer { padding: 48px 0; border-top: 1px solid rgba(99, 102, 241, 0.1); text-align: center; color: var(--text-muted); font-size: 0.875rem; }
 
-        /* Footer */
-        footer {
-            padding: 48px 0;
-            border-top: 1px solid rgba(99, 102, 241, 0.1);
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.875rem;
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stats {
-                flex-direction: column;
-                gap: 24px;
-            }
-
-            .nav-links {
-                display: none;
-            }
+            h1 { font-size: 2.5rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            .stats { flex-direction: column; gap: 24px; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
@@ -434,7 +290,7 @@
                     <li><a href="javascript:void(0)" onclick="toggleLanguage()" data-i18n="lang_toggle">English / 中文</a></li>
                 </ul>
             </nav>
-            <a href="#pricing" class="btn btn-primary" data-i18n="get_api_key">Get API Key</a>
+            <a href="pay.html" class="btn btn-primary" data-i18n="get_api_key">Get API Key</a>
         </div>
     </header>
 
@@ -477,33 +333,33 @@
                 <div class="features-grid">
                     <div class="feature-card">
                         <div class="feature-icon">⚡</div>
-                        <h3>Real-time Signals</h3>
-                        <p>Get instant notifications when our AI detects profitable opportunities across all major prediction markets.</p>
+                        <h3 data-i18n="feat_1_title">Real-time Signals</h3>
+                        <p data-i18n="feat_1_desc">Get instant notifications when our AI detects profitable opportunities across all major prediction markets.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">🤖</div>
-                        <h3>AI-Powered Analysis</h3>
-                        <p>Advanced machine learning models analyze odds, volume, and sentiment to find edge in every market.</p>
+                        <h3 data-i18n="feat_2_title">AI-Powered Analysis</h3>
+                        <p data-i18n="feat_2_desc">Advanced machine learning models analyze odds, volume, and sentiment to find edge in every market.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">📊</div>
-                        <h3>Market Coverage</h3>
-                        <p>Politics, crypto, sports, tech releases — we monitor all categories 24/7 so you never miss an opportunity.</p>
+                        <h3 data-i18n="feat_3_title">Market Coverage</h3>
+                        <p data-i18n="feat_3_desc">Politics, crypto, sports, tech releases — we monitor all categories 24/7 so you never miss an opportunity.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">🔌</div>
-                        <h3>Simple API</h3>
-                        <p>RESTful API with SDKs for Python, JavaScript, and Go. Integrate in minutes, not days.</p>
+                        <h3 data-i18n="feat_4_title">Simple API</h3>
+                        <p data-i18n="feat_4_desc">RESTful API with SDKs for Python, JavaScript, and Go. Integrate in minutes, not days.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">💰</div>
-                        <h3>Pay Per Use</h3>
-                        <p>No monthly fees. Only pay $0.10 per API call. Perfect for testing strategies or scaling up.</p>
+                        <h3 data-i18n="feat_5_title">Pay Per Use</h3>
+                        <p data-i18n="feat_5_desc">No monthly fees. Only pay $0.10 per API call. Perfect for testing strategies or scaling up.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">🔒</div>
-                        <h3>Enterprise Security</h3>
-                        <p>Bank-grade encryption, rate limiting, and audit logs. Your API keys are always secure.</p>
+                        <h3 data-i18n="feat_6_title">Enterprise Security</h3>
+                        <p data-i18n="feat_6_desc">Bank-grade encryption, rate limiting, and audit logs. Your API keys are always secure.</p>
                     </div>
                 </div>
             </div>
@@ -523,28 +379,27 @@
                     </div>
                     <p style="color: var(--text-muted);" data-i18n="billed_monthly">Billed monthly based on usage</p>
                     <ul class="pricing-features">
-                        <li>Unlimited API calls</li>
-                        <li>Real-time market signals</li>
-                        <li>All market categories</li>
-                        <li>Webhook notifications</li>
-                        <li>Priority support</li>
-                        <li>Usage dashboard</li>
+                        <li data-i18n="pricing_feat_1">Unlimited API calls</li>
+                        <li data-i18n="pricing_feat_2">Real-time market signals</li>
+                        <li data-i18n="pricing_feat_3">All market categories</li>
+                        <li data-i18n="pricing_feat_4">Webhook notifications</li>
+                        <li data-i18n="pricing_feat_5">Priority support</li>
+                        <li data-i18n="pricing_feat_6">Usage dashboard</li>
                     </ul>
                     <a href="pay.html" class="btn btn-primary" style="width: 100%;" data-i18n="get_api_key">Get API Key</a>
                 </div>
             </div>
         </section>
 
-        <!-- Documentation Section -->
         <section class="docs" id="docs">
             <div class="container">
                 <div class="section-header">
                     <h2 data-i18n="docs_h2">API Documentation</h2>
                     <p data-i18n="docs_p">Get started in minutes with our simple REST API.</p>
                 </div>
-                <div class="pricing-card" style="max-width: 800px; text-align: left;">
-                    <h3 style="margin-bottom: 20px;">🚀 Quick Start</h3>
-                    <pre style="background: #0d0d1a; padding: 20px; border-radius: 12px; overflow-x: auto; font-size: 0.9rem; color: #22d3ee;">
+                <div class="docs-card">
+                    <h3 data-i18n="docs_quick_start" style="margin-bottom: 20px;">🚀 Quick Start</h3>
+                    <pre>
 # Get latest signals
 curl -X GET "https://api.sunnclaw.ai/v1/signals" \
   -H "Authorization: Bearer YOUR_API_KEY"
@@ -562,14 +417,14 @@ curl -X GET "https://api.sunnclaw.ai/v1/signals" \
   ]
 }
                     </pre>
-                    <h3 style="margin: 30px 0 20px;">📡 Endpoints</h3>
+                    <h3 data-i18n="docs_endpoints" style="margin: 30px 0 20px;">📡 Endpoints</h3>
                     <ul style="list-style: none; line-height: 2.5;">
-                        <li><code style="background: #0d0d1a; padding: 4px 10px; border-radius: 4px; color: #10b981;">GET</code> <code>/v1/signals</code> — Get all active trading signals</li>
-                        <li><code style="background: #0d0d1a; padding: 4px 10px; border-radius: 4px; color: #22d3ee;">GET</code> <code>/v1/markets</code> — List all monitored markets</li>
-                        <li><code style="background: #0d0d1a; padding: 4px 10px; border-radius: 4px; color: #f59e0b;">POST</code> <code>/v1/webhooks</code> — Register a webhook for real-time alerts</li>
+                        <li><code style="color: #10b981;">GET</code> <code>/v1/signals</code> — <span data-i18n="docs_endpoint_1">Get all active trading signals</span></li>
+                        <li><code style="color: #22d3ee;">GET</code> <code>/v1/markets</code> — <span data-i18n="docs_endpoint_2">List all monitored markets</span></li>
+                        <li><code style="color: #f59e0b;">POST</code> <code>/v1/webhooks</code> — <span data-i18n="docs_endpoint_3">Register a webhook for real-time alerts</span></li>
                     </ul>
-                    <div style="margin-top: 30px; padding: 20px; background: rgba(99, 102, 241, 0.1); border-radius: 12px; border-left: 4px solid var(--primary);">
-                        <strong>💡 Pro Tip:</strong> Use webhooks to get instant notifications when new high-confidence signals are detected!
+                    <div class="pro-tip">
+                        <strong data-i18n="docs_pro_tip">💡 Pro Tip:</strong> <span data-i18n="docs_pro_tip_text">Use webhooks to get instant notifications when new high-confidence signals are detected!</span>
                     </div>
                 </div>
             </div>
@@ -579,7 +434,7 @@ curl -X GET "https://api.sunnclaw.ai/v1/signals" \
             <div class="container">
                 <h2 data-i18n="cta_h2">Ready to Snipe?</h2>
                 <p data-i18n="cta_p">Join traders who are already using Sniper API to gain an edge in prediction markets.</p>
-                <a href="#pricing" class="btn btn-primary" data-i18n="btn_start">Start Your Free Trial</a>
+                <a href="pay.html" class="btn btn-primary" data-i18n="btn_start">Start Your Free Trial</a>
             </div>
         </section>
     </main>
