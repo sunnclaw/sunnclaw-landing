@@ -446,7 +446,7 @@
                     <h1 data-i18n="hero_h1">Snipe Prediction Markets Like a Pro</h1>
                     <p data-i18n="hero_p">Real-time AI-powered signals for Polymarket. Catch market inefficiencies before anyone else. Pay only for what you use.</p>
                     <div class="hero-buttons">
-                        <a href="#pricing" class="btn btn-primary" data-i18n="btn_start">Start Your Free Trial</a>
+                        <a href="pay.html" class="btn btn-primary" data-i18n="btn_start">Start Your Free Trial</a>
                         <a href="#docs" class="btn btn-outline" data-i18n="btn_docs">View Documentation</a>
                     </div>
                     <div class="stats">
@@ -531,6 +531,46 @@
                         <li>Usage dashboard</li>
                     </ul>
                     <a href="pay.html" class="btn btn-primary" style="width: 100%;" data-i18n="get_api_key">Get API Key</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Documentation Section -->
+        <section class="docs" id="docs">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-i18n="docs_h2">API Documentation</h2>
+                    <p data-i18n="docs_p">Get started in minutes with our simple REST API.</p>
+                </div>
+                <div class="pricing-card" style="max-width: 800px; text-align: left;">
+                    <h3 style="margin-bottom: 20px;">🚀 Quick Start</h3>
+                    <pre style="background: #0d0d1a; padding: 20px; border-radius: 12px; overflow-x: auto; font-size: 0.9rem; color: #22d3ee;">
+# Get latest signals
+curl -X GET "https://api.sunnclaw.ai/v1/signals" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+
+# Response
+{
+  "signals": [
+    {
+      "market": "Will BTC hit $100k by March?",
+      "direction": "YES",
+      "confidence": 0.82,
+      "current_odds": 0.45,
+      "edge": "+8.2%"
+    }
+  ]
+}
+                    </pre>
+                    <h3 style="margin: 30px 0 20px;">📡 Endpoints</h3>
+                    <ul style="list-style: none; line-height: 2.5;">
+                        <li><code style="background: #0d0d1a; padding: 4px 10px; border-radius: 4px; color: #10b981;">GET</code> <code>/v1/signals</code> — Get all active trading signals</li>
+                        <li><code style="background: #0d0d1a; padding: 4px 10px; border-radius: 4px; color: #22d3ee;">GET</code> <code>/v1/markets</code> — List all monitored markets</li>
+                        <li><code style="background: #0d0d1a; padding: 4px 10px; border-radius: 4px; color: #f59e0b;">POST</code> <code>/v1/webhooks</code> — Register a webhook for real-time alerts</li>
+                    </ul>
+                    <div style="margin-top: 30px; padding: 20px; background: rgba(99, 102, 241, 0.1); border-radius: 12px; border-left: 4px solid var(--primary);">
+                        <strong>💡 Pro Tip:</strong> Use webhooks to get instant notifications when new high-confidence signals are detected!
+                    </div>
                 </div>
             </div>
         </section>
