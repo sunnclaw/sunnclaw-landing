@@ -1,6 +1,8 @@
 const translations = {
     en: {
         title: "Polymarket Sniper API - Real-time Prediction Market Signals",
+        nav_features: "Features",
+        nav_pricing: "Pricing",
         hero_h1: "Snipe Prediction Markets Like a Pro",
         hero_p: "Real-time AI-powered signals for Polymarket. Catch market inefficiencies before anyone else. Pay only for what you use.",
         btn_start: "Start Your Free Trial",
@@ -50,6 +52,8 @@ const translations = {
     },
     zh: {
         title: "Polymarket 狙击手 API - 实时预测市场信号",
+        nav_features: "核心功能",
+        nav_pricing: "价格方案",
         hero_h1: "像专业交易员一样狙击预测市场",
         hero_p: "为 Polymarket 提供实时的 AI 驱动信号。在他人之前捕捉市场低效。按需付费，绝无隐形消费。",
         btn_start: "开始免费试用",
@@ -78,7 +82,7 @@ const translations = {
         billed_monthly: "根据实际用量按月结算",
         pricing_feat_1: "无限 API 调用",
         pricing_feat_2: "实时市场信号",
-        pricing_feat_3: "所有市场类别",\
+        pricing_feat_3: "所有市场类别",
         pricing_feat_4: "Webhook 通知",
         pricing_feat_5: "优先支持",
         pricing_feat_6: "使用量仪表板",
@@ -100,55 +104,39 @@ const translations = {
 };
 
 function setLanguage(lang) {
-    console.log('Setting language to:', lang);
-    if (!translations[lang]) {
-        console.error('Translation not found for language:', lang);
-        return;
-    }
+    if (!translations[lang]) return;
 
     localStorage.setItem('lang', lang);
     document.documentElement.lang = lang;
     
     // Update Title
-    if (translations[lang].title) {
-        document.title = translations[lang].title;
-    }
+    document.title = translations[lang].title;
 
-    // Update elements with data-i18n
+    // Update all elements with data-i18n
     const elements = document.querySelectorAll('[data-i18n]');
-    console.log(`Found ${elements.length} elements to translate.`);
-    
     elements.forEach(el => {
         const key = el.getAttribute('data-i18n');
-        const translation = translations[lang][key];
-        
-        if (translation) {
-            // Use innerHTML for elements that might contain emojis or formatting
-            // but be careful with scripts.
-            el.innerHTML = translation;
-        } else {
-            console.warn(`Missing translation for key: "${key}" in language: "${lang}"`);
+        if (translations[lang][key]) {
+            // Using innerHTML ensures emojis and formatting work correctly
+            el.innerHTML = translations[lang][key];
         }
     });
+    
+    console.log(`Language set to: ${lang}`);
 }
 
 function initI18n() {
-    let lang = localStorage.getItem('lang');
-    if (!lang) {
-        lang = navigator.language.startsWith('zh') ? 'zh' : 'en';
-    }
+    const savedLang = localStorage.getItem('lang');
+    const browserLang = navigator.language.startsWith('zh') ? 'zh' : 'en';
+    const lang = savedLang || browserLang;
     setLanguage(lang);
 }
 
 function toggleLanguage() {
     const currentLang = localStorage.getItem('lang') || 'en';
-    const newLang = currentLang === 'en' ? 'zh' : 'en';
-    setLanguage(newLang);
+    const nextLang = currentLang === 'en' ? 'zh' : 'en';
+    setLanguage(nextLang);
 }
 
-// Initial setup
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initI18n);
-} else {
-    initI18n();
-}
+// Ensure the page starts with the correct language
+document.addEventListener('DOMContentLoaded', initI18n);
