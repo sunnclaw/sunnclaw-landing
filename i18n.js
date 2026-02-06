@@ -78,7 +78,7 @@ const translations = {
         billed_monthly: "根据实际用量按月结算",
         pricing_feat_1: "无限 API 调用",
         pricing_feat_2: "实时市场信号",
-        pricing_feat_3: "所有市场类别",
+        pricing_feat_3: "所有市场类别",\
         pricing_feat_4: "Webhook 通知",
         pricing_feat_5: "优先支持",
         pricing_feat_6: "使用量仪表板",
@@ -99,26 +99,56 @@ const translations = {
     }
 };
 
-function initI18n() {
-    let lang = localStorage.getItem('lang') || (navigator.language.startsWith('zh') ? 'zh' : 'en');
-    setLanguage(lang);
-}
-
 function setLanguage(lang) {
+    console.log('Setting language to:', lang);
+    if (!translations[lang]) {
+        console.error('Translation not found for language:', lang);
+        return;
+    }
+
     localStorage.setItem('lang', lang);
     document.documentElement.lang = lang;
     
-    document.querySelectorAll('[data-i18n]').forEach(el => {
+    // Update Title
+    if (translations[lang].title) {
+        document.title = translations[lang].title;
+    }
+
+    // Update elements with data-i18n
+    const elements = document.querySelectorAll('[data-i18n]');
+    console.log(`Found ${elements.length} elements to translate.`);
+    
+    elements.forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (translations[lang][key]) {
-            el.innerText = translations[lang][key];
+        const translation = translations[lang][key];
+        
+        if (translation) {
+            // Use innerHTML for elements that might contain emojis or formatting
+            // but be careful with scripts.
+            el.innerHTML = translation;
+        } else {
+            console.warn(`Missing translation for key: "${key}" in language: "${lang}"`);
         }
     });
 }
 
-function toggleLanguage() {
-    const currentLang = localStorage.getItem('lang') || 'en';
-    setLanguage(currentLang === 'en' ? 'zh' : 'en');
+function initI18n() {
+    let lang = localStorage.getItem('lang');
+    if (!lang) {
+        lang = navigator.language.startsWith('zh') ? 'zh' : 'en';
+    }
+    setLanguage(lang);
 }
 
-window.addEventListener('DOMContentLoaded', initI18n);
+function toggleLanguage() {
+    const currentLang = localStorage.getItem('lang') || 'en';
+    const newLang = currentLang === 'en' ? 'zh' : 'en';
+    setLanguage(newLang);
+}
+
+// Initial setup
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initI18n);
+} else {
+    initI18n();
+}

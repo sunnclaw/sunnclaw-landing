@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Polymarket Sniper API - Real-time Prediction Market Signals</title>
+    <title data-i18n="title">Polymarket Sniper API - Real-time Prediction Market Signals</title>
     <meta name="description" content="Get real-time trading signals for Polymarket prediction markets. AI-powered analysis, 24/7 automated monitoring.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="i18n.js"></script>
+    <script src="i18n.js?v=1.0.1"></script>
     <style>
         :root {
             --primary: #6366f1;
@@ -280,13 +280,13 @@
     <header>
         <div class="container header-inner">
             <div class="logo">
-                <img src="sunnclaw_logo.png" alt="SunnClaw" style="width: 50px; height: 50px; margin-right: 10px; border-radius: 50%;">
+                <img src="sunnclaw_logo_small.png" alt="SunnClaw" style="width: 50px; height: 50px; margin-right: 10px; border-radius: 50%;">
                 Sniper API
             </div>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#features" data-i18n="nav_features">Features</a></li>
+                    <li><a href="#pricing" data-i18n="nav_pricing">Pricing</a></li>
                     <li><a href="javascript:void(0)" onclick="toggleLanguage()" data-i18n="lang_toggle">English / 中文</a></li>
                 </ul>
             </nav>
@@ -334,7 +334,7 @@
                     <div class="feature-card">
                         <div class="feature-icon">⚡</div>
                         <h3 data-i18n="feat_1_title">Real-time Signals</h3>
-                        <p data-i18n="feat_1_desc">Get instant notifications when our AI detects profitable opportunities across all major prediction markets.</p>
+                        <p data-i18n=\"feat_1_desc\">Get instant notifications when our AI detects profitable opportunities across all major prediction markets.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">🤖</div>
@@ -359,7 +359,7 @@
                     <div class="feature-card">
                         <div class="feature-icon">🔒</div>
                         <h3 data-i18n="feat_6_title">Enterprise Security</h3>
-                        <p data-i18n="feat_6_desc">Bank-grade encryption, rate limiting, and audit logs. Your API keys are always secure.</p>
+                        <p data-i18n="feat_6_desc\">Bank-grade encryption, rate limiting, and audit logs. Your API keys are always secure.</p>
                     </div>
                 </div>
             </div>
@@ -379,69 +379,69 @@
                     </div>
                     <p style="color: var(--text-muted);" data-i18n="billed_monthly">Billed monthly based on usage</p>
                     <ul class="pricing-features">
-                        <li data-i18n="pricing_feat_1">Unlimited API calls</li>
-                        <li data-i18n="pricing_feat_2">Real-time market signals</li>
-                        <li data-i18n="pricing_feat_3">All market categories</li>
-                        <li data-i18n="pricing_feat_4">Webhook notifications</li>
-                        <li data-i18n="pricing_feat_5">Priority support</li>
-                        <li data-i18n="pricing_feat_6">Usage dashboard</li>
+                        <li data-i18n=\"pricing_feat_1\">Unlimited API calls</li>
+                        <li data-i18n=\"pricing_feat_2\">Real-time market signals</li>
+                        <li data-i18n=\"pricing_feat_3\">All market categories</li>
+                        <li data-i18n=\"pricing_feat_4\">Webhook notifications</li>
+                        <li data-i18n=\"pricing_feat_5\">Priority support</li>
+                        <li data-i18n=\"pricing_feat_6\">Usage dashboard</li>
                     </ul>
                     <a href="pay.html" class="btn btn-primary" style="width: 100%;" data-i18n="get_api_key">Get API Key</a>
                 </div>
             </div>
         </section>
 
-        <section class="docs" id="docs">
-            <div class="container">
-                <div class="section-header">
-                    <h2 data-i18n="docs_h2">API Documentation</h2>
-                    <p data-i18n="docs_p">Get started in minutes with our simple REST API.</p>
+        <section class=\"docs\" id=\"docs\">
+            <div class=\"container\">
+                <div class=\"section-header\">
+                    <h2 data-i18n=\"docs_h2\">API Documentation</h2>
+                    <p data-i18n=\"docs_p\">Get started in minutes with our simple REST API.</p>
                 </div>
-                <div class="docs-card">
-                    <h3 data-i18n="docs_quick_start" style="margin-bottom: 20px;">🚀 Quick Start</h3>
+                <div class=\"docs-card\">
+                    <h3 data-i18n=\"docs_quick_start\" style=\"margin-bottom: 20px;\">🚀 Quick Start</h3>
                     <pre>
 # Get latest signals
-curl -X GET "https://api.sunnclaw.ai/v1/signals" \
-  -H "Authorization: Bearer YOUR_API_KEY"
+curl -X GET \"https://api.sunnclaw.ai/v1/signals\" \\
+  -H \"Authorization: Bearer YOUR_API_KEY\"
 
 # Response
 {
-  "signals": [
+  \"signals\": [
     {
-      "market": "Will BTC hit $100k by March?",
-      "direction": "YES",
-      "confidence": 0.82,
-      "current_odds": 0.45,
-      "edge": "+8.2%"
+      \"market\": \"Will BTC hit $100k by March?\",
+      \"direction\": \"YES\",
+      \"confidence\": 0.82,
+      \"current_odds\": 0.45,
+      \"edge\": \"+8.2%\"
     }
   ]
 }
                     </pre>
-                    <h3 data-i18n="docs_endpoints" style="margin: 30px 0 20px;">📡 Endpoints</h3>
-                    <ul style="list-style: none; line-height: 2.5;">
-                        <li><code style="color: #10b981;">GET</code> <code>/v1/signals</code> — <span data-i18n="docs_endpoint_1">Get all active trading signals</span></li>
-                        <li><code style="color: #22d3ee;">GET</code> <code>/v1/markets</code> — <span data-i18n="docs_endpoint_2">List all monitored markets</span></li>
-                        <li><code style="color: #f59e0b;">POST</code> <code>/v1/webhooks</code> — <span data-i18n="docs_endpoint_3">Register a webhook for real-time alerts</span></li>
+                    <h3 data-i18n=\"docs_endpoints\" style=\"margin: 30px 0 20px;\">📡 Endpoints</h3>
+                    <ul style=\"list-style: none; line-height: 2.5;\">
+                        <li><code style=\"color: #10b981;\">GET</code> <code>/v1/signals</code> — <span data-i18n=\"docs_endpoint_1\">Get all active trading signals</span></li>
+                        <li><code style=\"color: #22d3ee;\">GET</code> <code>/v1/markets</code> — <span data-i18n=\"docs_endpoint_2\">List all monitored markets</span></li>
+                        <li><code style=\"color: #f59e0b;\">POST</code> <code>/v1/webhooks</code> — <span data-i18n=\"docs_endpoint_3\">Register a webhook for real-time alerts</span></li>
                     </ul>
-                    <div class="pro-tip">
-                        <strong data-i18n="docs_pro_tip">💡 Pro Tip:</strong> <span data-i18n="docs_pro_tip_text">Use webhooks to get instant notifications when new high-confidence signals are detected!</span>
+                    <div class=\"pro-tip\">
+                        <strong data-i18n=\"docs_pro_tip\">💡 Pro Tip:</strong> <span data-i18n=\"docs_pro_tip_text\">Use webhooks to get instant notifications when new high-confidence signals are detected!</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="cta">
-            <div class="container">
-                <h2 data-i18n="cta_h2">Ready to Snipe?</h2>
-                <p data-i18n="cta_p">Join traders who are already using Sniper API to gain an edge in prediction markets.</p>
-                <a href="pay.html" class="btn btn-primary" data-i18n="btn_start">Start Your Free Trial</a>
+        <section class=\"cta\">
+            <div class=\"container\">
+                <h2 data-i18n=\"cta_h2\">Ready to Snipe?</h2>
+                <p data-i18n=\"cta_p\">Join traders who are already using Sniper API to gain an edge in prediction markets.</p>
+                <a href=\"pay.html\" class=\"btn btn-primary\" data-i18n=\"btn_start\">Start Your Free Trial</a>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="container">
-            <p data-i18n="footer">Built with 😼 by AI Boss SunSun.</p>
+        <div class=\"container\">
+            <p data-i18n=\"footer\">Built with 😼 by AI Boss SunSun.</p>
         </div>
     </footer>
 </body>
